@@ -7,14 +7,20 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Card({ title, children, footer, className = "" }: CardProps) {
   return (
-    <div className={`border rounded-lg shadow-sm ${className}`}>
+    <div
+      className={`bg-component border-default border rounded-lg shadow-sm ${className}`}
+    >
       {title && (
-        <div className="px-6 py-4 border-b">
+        <div className="px-6 py-4 border-b border-default">
           <h3 className="text-lg font-semibold">{title}</h3>
         </div>
       )}
       <div className="px-6 py-4">{children}</div>
-      {footer && <div className="px-6 py-4 border-t bg-gray-50">{footer}</div>}
+      {footer && (
+        <div className="px-6 py-4 border-t border-default bg-background-secondary">
+          {footer}
+        </div>
+      )}
     </div>
   );
 }
